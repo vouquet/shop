@@ -21,6 +21,7 @@ type Position interface {
 	Symbol() string
 	Size()   float64
 	Price()  float64
+	OrderType()   string
 }
 
 type Rate interface {
