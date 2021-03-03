@@ -14,6 +14,8 @@ type Shop interface {
 	GetPositions(string) ([]Position, error)
 	OrderStreamIn(string, string, float64) error //type, symbol, size
 	OrderStreamOut(Position) error
+
+	Close() error
 }
 
 type Position interface {
