@@ -12,8 +12,10 @@ const (
 type Shop interface {
 	GetRate()   (map[string]Rate, error)
 	GetPositions(string) ([]Position, error)
+	GetFixes(string) ([]Fix, error)
 	OrderStreamIn(string, string, float64) error //type, symbol, size
 	OrderStreamOut(Position) error
+
 
 	Close() error
 }
@@ -24,6 +26,16 @@ type Position interface {
 	Size()   float64
 	Price()  float64
 	OrderType()   string
+}
+
+type Fix interface {
+	Id()        string
+	Symbol()    string
+	OrderType() string
+	Size()      float64
+	Price()     float64
+	Yield()     (float64, error)
+	Date()      (time.Time, error)
 }
 
 type Rate interface {
